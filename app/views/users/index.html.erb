@@ -1,0 +1,19 @@
+<table border="2px">
+  <thead>
+    <tr>
+      <th>email</th>
+      <th>count</th>
+      <th>last_sign_in_at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+       <tr>
+        <th><%= user.email %></th>
+			 	<th><%= user.sign_in_count %></th>
+      	<th><%= user.last_sign_in_at %></th>
+       </tr>
+   <% end %>
+  </tbody>
+</table>

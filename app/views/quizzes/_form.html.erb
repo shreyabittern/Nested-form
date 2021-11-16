@@ -1,0 +1,32 @@
+<%= nested_form_for @quiz do |f| %>
+<% if @quiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+      
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+
+  <ul>
+    <%= f.fields_for :answers do |answer_form| %>
+    <%= answer_form.text_field :title %>
+    <%= answer_form.link_to_remove "Remove this task" %>
+    <% end %>
+  <p><%= f.link_to_add "Add a answer", :answers %></p>
+  </ul>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
